@@ -1,0 +1,87 @@
+@import 'star-rating';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100%;
+}
+
+#sidebar {
+    width: 20vw;
+    height: 100vh;
+    background-color: #eee;
+    transform: translateX(-100%);
+    transition: transform 200ms ease-in-out;
+    position: absolute;
+
+    & > label {
+        display: none;
+        position: absolute;
+        right: -1rem;
+    }
+}
+
+#sidebar_button {
+    display: none;
+
+    &:checked ~ #sidebar {
+        transform: translateX(0);
+
+        & > label {
+            display: block;
+        }
+    }
+}
+
+// Est équivalent à ça en CSS:
+/*
+#sidebar_button {
+  display: none;
+}
+#sidebar_button:checked ~ #sidebar {
+  transform: translateX(0);
+}
+#sidebar_button:checked ~ #sidebar  > label {
+  display: block;
+}
+*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+%btn {
+    padding: 0.5rem 0.75rem;
+    font-weight: bold;
+    border: 1px solid currentColor;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+}
+
+.btn__success {
+    @extend %btn;
+    background-color: #BBF7D0;
+    color: #166534;
+
+    &:hover {
+        background-color: #86EFAC;
+        color: #14532D;
+    }
+}
+
+.btn__error {
+    @extend %btn;
+    background-color: #FECACA;
+    color: #991B1B;
+
+    &:hover {
+        background-color: #FCA5A5;
+        color: #7F1D1D;
+    }
+}

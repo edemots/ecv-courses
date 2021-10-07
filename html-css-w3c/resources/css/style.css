@@ -1,0 +1,126 @@
+body {
+  background-color: #FEFCE8;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+@media screen and (min-width: 375px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+body h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  font-family: "Cascadia Mono";
+}
+body .form {
+  padding: 2rem 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+body .form .form__input {
+  display: none;
+}
+body .form .form__input + label {
+  color: #F4F4F5;
+  cursor: pointer;
+  transition: color 150ms ease-in-out;
+}
+body .form .form__input + label > svg {
+  stroke: currentColor;
+  fill: currentColor;
+  width: 4rem;
+  height: 4rem;
+}
+body .form .form__input + label:hover {
+  color: #FEF08A;
+}
+body .form .form__input:checked + label, body .form .form__input:checked ~ label {
+  color: #FDE047;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+#sidebar {
+  width: 20vw;
+  height: 100vh;
+  background-color: #eee;
+  transform: translateX(-100%);
+  transition: transform 200ms ease-in-out;
+  position: absolute;
+}
+#sidebar > label {
+  display: none;
+  position: absolute;
+  right: -1rem;
+}
+
+#sidebar_button {
+  display: none;
+}
+#sidebar_button:checked ~ #sidebar {
+  transform: translateX(0);
+}
+#sidebar_button:checked ~ #sidebar > label {
+  display: block;
+}
+
+/*
+#sidebar_button {
+  display: none;
+}
+#sidebar_button:checked ~ #sidebar {
+  transform: translateX(0);
+}
+#sidebar_button:checked ~ #sidebar  > label {
+  display: block;
+}
+*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.btn__error, .btn__success {
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+
+.btn__success {
+  background-color: #BBF7D0;
+  color: #166534;
+}
+.btn__success:hover {
+  background-color: #86EFAC;
+  color: #14532D;
+}
+
+.btn__error {
+  background-color: #FECACA;
+  color: #991B1B;
+}
+.btn__error:hover {
+  background-color: #FCA5A5;
+  color: #7F1D1D;
+}

@@ -1,0 +1,66 @@
+@mixin align($direction: center) {
+    $direction: unquote($direction);
+    display: flex;
+    align-items: $direction;
+    justify-content: $direction;
+}
+
+@function toPercent($value, $unit) {
+    @return $value * 100 + unquote($unit);
+}
+
+body {
+    background-color: #FEFCE8;
+    height: toPercent(1, 'vh');
+
+    @include align(flex-end);
+    @media screen and (min-width: 375px) {
+        @include align(center);
+    }
+
+    h1 {
+        font: {
+            weight: 700;
+            size: 3rem;
+            family: "Cascadia Mono";
+        }
+    }
+
+    .form {
+        $className: 'form';
+
+        padding: 2rem 3rem;
+        border-radius: 2rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        background-color: #fff;
+        @include align(center);
+        flex-direction: row-reverse;
+
+        .#{$className}__input {
+            display: none;
+
+            & + label {
+                color: #F4F4F5;
+                cursor: pointer;
+                transition: color 150ms ease-in-out;
+
+                > svg {
+                    stroke: currentColor;
+                    fill: currentColor;
+                    width: 4rem;
+                    height: 4rem;
+                }
+
+                &:hover {
+                    color: #FEF08A;
+                }
+            }
+
+            &:checked {
+                + label, ~ label {
+                    color: #FDE047;
+                }
+            }
+        }
+    }
+}
