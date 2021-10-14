@@ -1,0 +1,3 @@
+[submodule "html-scss-starter"]
+	path = html-scss-starter
+	url = git@github.com:edemots/html-scss-starter.git
